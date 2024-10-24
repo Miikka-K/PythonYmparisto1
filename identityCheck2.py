@@ -160,7 +160,7 @@ class NationalSSN:
             self.dateOfBirth = isoDate
 
     # Lasketaan ikä nyt täysinä vuosina
-    def calculateAge(self):
+    def calculateAge(self) -> int:
         # Tarkistetaan ennen laskentaa, että henkilötunnus on oikein syötetty
         if self.isValidSsn():  # Tarkistaa onko hetu syötetty oikein
             self.getDateOfBirth()  # Kutsutaan metodia, joka asettaa dateOfBirth ominaisuuden arvon
@@ -176,10 +176,14 @@ class NationalSSN:
 
             # Palautetaan ikä vuosina
             return ageInYears
+        else:
+            return 0
+
     
     # Metodi sukupuolen selvittämiseen sekä number- ja gender-ominaisuuden asettamiseen
     def getGender(self):
-
+        """Sets the gender property of the objest (in finnish)
+        """
         # Tarkistetaan ensin, onko SSN oikein syötetty
         if self.isValidSsn():
 
@@ -195,6 +199,7 @@ class NationalSSN:
                 self.gender = 'Nainen'
             else:
                 self.gender = 'Mies'
+            
 
     
 # MAIN KOKEILUJA VARTEN (Poista, kun ei enää tarvita)
